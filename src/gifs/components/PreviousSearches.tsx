@@ -1,13 +1,18 @@
 
+interface PreviousSearchesProp {
+  searches: string[];
+  onPreviousSearchClick: (search: string) => void;
+}
 
-export const PreviousSearches = () => {
+export const PreviousSearches = ({ searches, onPreviousSearchClick }: PreviousSearchesProp) => {
+
   return (
     <div className="previous-searches">
       <h2>Previous Searches</h2>
       <ul className="previous-searches-list">
-        <li>GIF 1</li>
-        <li>GIF 2</li>
-        <li>GIF 3</li>
+        {searches.map((search) => (
+          <li key={search} onClick={() => onPreviousSearchClick(search)}>{search}</li>
+        ))}
       </ul>
     </div>
   )
