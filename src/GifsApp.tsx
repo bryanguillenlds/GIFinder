@@ -13,15 +13,23 @@ export const GifsApp = () => {
     console.log(search);
   }
 
-  const handleSearch = (query: string): void => {
-    console.log(query);
+  const handleSearchInput = (query: string): void => {
+    if (query.trim() === '') return;
+
+    const newSearchTerm = query.trim().toLowerCase();
+
+    console.log('includes', previousSearches.includes(newSearchTerm));
+
+    if (previousSearches.includes(newSearchTerm)) return;
+
+    setPreviousSearches(prev => [newSearchTerm, ...prev].slice(0, 4));
   }
 
   return (
     <>
       <CustomHeader title="GIF Finder" description="Find the perfect GIF for your situation" />
 
-      <SearchBar placeholder="Search for a GIF" onSearch={handleSearch} />
+      <SearchBar placeholder="Search for a GIF" onSearch={handleSearchInput} />
 
       <PreviousSearches searches={previousSearches} onPreviousSearchClick={handlePreviousSearchClick} />
 
