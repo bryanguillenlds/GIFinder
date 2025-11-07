@@ -1,12 +1,6 @@
-export interface Gif {
-  id: string;
-  title: string;
-  url: string;
-  width: number;
-  height: number;
-}
+import type { Sticker } from "../gifs/interfaces/sticker.interface";
 
-export const mockGifs: Gif[] = [
+export const mockGifs: Sticker[] = [
   {
     id: "1",
     title: "Superman's Cake",
