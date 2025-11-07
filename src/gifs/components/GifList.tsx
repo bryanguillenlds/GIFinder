@@ -1,7 +1,7 @@
-import type { Gif } from "../../mock-data/gifs.mock";
+import type { Sticker } from "../interfaces/sticker.interface";
 
 interface GifListProp {
-  gifs: Gif[];
+  gifs: Sticker[];
 }
 
 export const GifList = ({ gifs }: GifListProp) => {
