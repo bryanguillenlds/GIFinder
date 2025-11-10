@@ -2,32 +2,11 @@ import { CustomHeader } from './shared/components/CustomHeader';
 import { SearchBar } from './shared/components/SearchBar';
 import { PreviousSearches } from './gifs/components/PreviousSearches';
 import { GifList } from './gifs/components/GifList';
-import { useState } from 'react';
-import { getStickersByQuery } from './gifs/actions/get-stickers-by-query.action';
-import type { Sticker } from './gifs/interfaces/sticker.interface';
+import { useGifs } from './gifs/hooks/useGifs';
 
 export const GifsApp = () => {
 
-  const [previousSearches, setPreviousSearches] = useState<string[]>([]);
-  const [stickers, setStickers] = useState<Sticker[]>([]);
-
-  const handlePreviousSearchClick = (search: string): void => {
-    handleSearchInput(search);
-  }
-
-  const handleSearchInput = async (query: string): Promise<void> => {
-    if (query.trim() === '') return;
-
-    const newSearchTerm = query.trim().toLowerCase();
-
-    if (previousSearches.includes(newSearchTerm)) return;
-
-    setPreviousSearches(prev => [newSearchTerm, ...prev].slice(0, 4));
-
-    const stickers = await getStickersByQuery(newSearchTerm);
-
-    setStickers(stickers);
-  }
+  const { previousSearches, stickers, handlePreviousSearchClick, handleSearchInput } = useGifs();
 
   return (
     <>
