@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GifsApp > should render component properly 1`] = `
+<div>
+  <div
+    class="content-center"
+  >
+    <h1>
+      Sticker Finder
+    </h1>
+    <p>
+      Find the perfect Sticker for your chat! (Rated R)
+    </p>
+  </div>
+  <div
+    class="search-container"
+  >
+    <input
+      placeholder="Search for a Sticker"
+      type="text"
+      value=""
+    />
+    <button>
+      Search
+    </button>
+  </div>
+  <div
+    class="gifs-container"
+  />
+  <footer
+    style="margin-top: 2rem; text-align: center; color: rgb(136, 136, 136); font-size: 0.9rem;"
+  >
+    © 
+    2025
+     Bryan Guillen. All rights reserved.
+    <br />
+    <a
+      href="https://www.linkedin.com/in/bryanguillen/"
+      rel="noopener noreferrer"
+      style="color: rgb(136, 136, 136); text-decoration: underline;"
+      target="_blank"
+    >
+      LinkedIn
+    </a>
+  </footer>
+</div>
+`;
