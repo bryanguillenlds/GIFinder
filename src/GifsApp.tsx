@@ -12,7 +12,7 @@ export const GifsApp = () => {
     <>
       <CustomHeader title="Sticker Finder" description="Find the perfect Sticker for your chat! (Rated R)" />
 
-      <SearchBar placeholder="Search for a GIF" onSearch={handleSearchInput} />
+      <SearchBar placeholder="Search for a Sticker" onSearch={handleSearchInput} />
 
       {previousSearches.length > 0 && (
         <PreviousSearches searches={previousSearches} onPreviousSearchClick={handlePreviousSearchClick} />
