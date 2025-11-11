@@ -19,6 +19,19 @@ export const GifsApp = () => {
       )}
 
       <GifList gifs={stickers} />
+
+      <footer style={{ marginTop: "2rem", textAlign: "center", color: "#888", fontSize: "0.9rem" }}>
+        &copy; {new Date().getFullYear()} Bryan Guillen. All rights reserved.
+        <br />
+        <a
+          href="https://www.linkedin.com/in/bryanguillen/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#888", textDecoration: "underline" }}
+        >
+          LinkedIn
+        </a>
+      </footer>
     </>
   )
 };
