@@ -10,18 +10,11 @@ export const useGifs = () => {
   const [stickers, setStickers] = useState<Sticker[]>([]);
 
   // useRef allows us to persist data across renders (does not trigger re-renders).
-  // (it is only per component, but that is ok for our use case)
+  // (it is only persistent for this component instance, but that is ok for our use case)
   const stickersCacheRef = useRef<Record<string, Sticker[]>>({});
 
   const handlePreviousSearchClick = async (search: string): Promise<void> => {
-    if (stickersCacheRef.current[search]) {
-      setStickers(stickersCacheRef.current[search]);
-      return;
-    }
-
-    const stickers = await getStickersByQuery(search);
-
-    setStickers(stickers);
+    setStickers(stickersCacheRef.current[search]);
   }
 
   const handleSearchInput = async (query: string): Promise<void> => {
@@ -37,7 +30,7 @@ export const useGifs = () => {
 
     setStickers(stickers);
 
-    stickersCacheRef.current[query] = stickers;
+    stickersCacheRef.current[newSearchTerm] = stickers;
   }
 
   return {
